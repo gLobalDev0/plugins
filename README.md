@@ -1,19 +1,19 @@
-# KiCad-LLM Otomasyon Eklentisi (MVP)
+# KiCad-LLM Automator Plugin (MVP)
 
-Büyük Dil Modellerini (LLM) kullanarak devre tasarım süreçlerini otomatikleştirmek ve optimize etmek için KiCad için tasarlanmış yapay zeka destekli bir entegrasyon eklentisidir. Bu MVP (Minimum Uygulanabilir Ürün), yazılım zekası ile donanım geliştirme iş akışları arasında bir köprü oluşturmaya odaklanmaktadır.
+An AI-powered integration plugin designed for KiCad to automate and optimize circuit design processes using Large Language Models (LLMs). This MVP focuses on bridging software intelligence with hardware development workflows.
 
-## 🚀 Önemli Özellikler
-* **Yapay Zeka Destekli Devre Tasarımı:** Şematik ve PCB tasarım otomasyonunu kolaylaştırmak için LLM yeteneklerini doğrudan KiCad ortamına entegre eder.
-* **Otomatik İstemler (Prompt):** Teknik gereksinimleri uygulanabilir devre parametrelerine dönüştürmek için özel olarak tasarlanmış prompt yapıları içerir.
-* **OpenAI/Groq Entegrasyonu:** Hızlı ve akıllı tasarım geri bildirimleri için yüksek performanslı API mimarilerini kullanır.
+## 🚀 Key Features
+* **AI-Assisted Circuit Design:** Integrates LLM capabilities directly into the KiCad environment to streamline schematic and PCB design automation.
+* **Automated Prompts:** Custom-engineered prompt structures to translate technical requirements into actionable circuit parameters.
+* **OpenAI/Groq Integration:** Utilizes high-performance API architectures for fast, intelligent design feedback.
 
-## 🛠️ Kullanılan Teknolojiler
-* **EDA Aracı:** KiCad 8.0 (Python Betikleme & Eklenti API'si)
-* **Ana Dil:** Python
-* **Yapay Zeka Entegrasyonu:** LLM'ler (Groq / OpenAI API)
+## 🛠️ Tech Stack
+* **EDA Tool:** KiCad 8.0 (Python Scripting & Plugin API)
+* **Core Language:** Python
+* **AI Integration:** LLMs (Groq / OpenAI API)
 
-## 📌 Durum
-Bu proje, yapay zeka destekli elektronik tasarım otomasyonunun uygulanabilirliğini göstermek amacıyla şu anda bir **Minimum Uygulanabilir Ürün (MVP)** olarak geliştirilmektedir.
+## 📌 Status
+This project is currently developed as a **Minimum Viable Product (MVP)** to demonstrate the feasibility of AI-driven electronics design automation.
 
 
 <img width="1851" height="1052" alt="image" src="https://github.com/user-attachments/assets/b067e429-1910-413c-9cd6-172e7992cd9b" />
