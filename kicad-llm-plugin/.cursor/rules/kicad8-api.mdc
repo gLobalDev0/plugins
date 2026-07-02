@@ -1,0 +1,28 @@
+---
+description: KiCad 8 Python API (pcbnew) kodu yazılırken veya footprint eşleştirilirken otomatik uygulanır
+globs: "*.py"
+alwaysApply: false
+---
+
+# KiCad 8.0 API & Tasarım Kuralları
+
+## 1. Footprint Kısıtlamaları (Kafandan Uydurma)
+- Dirençler için mutlaka şunu kullan: `Resistor_SMD:R_0805_2012Metric`
+- Kapasitörler için mutlaka şunu kullan: `Capacitor_SMD:C_0805_2012Metric`
+- Diyotlar için mutlaka şunu kullan: `Diode_SMD:D_SOD-123`
+- Bobin/Endüktör için: `Inductor_SMD:L_0805_2012Metric`
+- Yeni footprint adı üretmeden önce `footprint-validator` skill ile sistemde varlığını doğrula.
+
+## 2. Katman Kuralları
+- Kart kenarı her zaman `Edge.Cuts` katmanına çizilmelidir.
+- Kartın yeşil ve profesyonel görünmesi için `F.Mask` (Ön maske) ve `B.Mask` (Arka maske) katmanlarını da otomatik tanımla (`pcb_apply._enable_render_layers` ile uyumlu).
+
+## 3. Mühendislik Kuralları
+- Filtre kapasitörlerini her zaman entegrenin (IC) güç pinine en yakın koordinata yerleştir (`anchor_ref` + `offset_mm` ile JSON'da).
+- Güç hatları (12V, 20V vb.) için `track_width_mm` en az 0.6 mm; yüksek akımda 1.0 mm'ye çık.
+- Tasarım JSON'u `schema_version: 1` ile uyumlu olmalı (`design_spec.validate_spec`).
+
+## 4. İş Akışı (CrewAI / Alt Ajanlar)
+1. Kullanıcı onayından önce JSON üretme.
+2. Onay sonrası: `footprint-validator` → `senior-pcb-reviewer` → `track-router-agent` sırası.
+3. Kıdemli denetçi RED verirse `pcb_apply.apply_design` çağırma.

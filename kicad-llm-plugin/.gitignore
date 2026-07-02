@@ -1,0 +1,19 @@
+# Groq API — asla commit etme
+groq_api_key.txt
+groq_api_key.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# IDE / OS
+.cursor/*.log
+.DS_Store
+*.swp
+
+# CrewAI / ortam (ileride)
+.env
+.crewai/

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "secure-kicad-workspace": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/gullu/.local/share/kicad/8.0/scripting/plugins"
+      ]
+    }
+  }
+}

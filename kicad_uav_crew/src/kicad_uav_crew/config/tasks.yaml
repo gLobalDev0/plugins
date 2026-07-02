@@ -1,0 +1,27 @@
+requirement_gathering_task:
+  description: >
+    Kullanıcının '{user_request}' isteğini incele. Eğer giriş voltajı, akım değeri veya kart boyutu gibi kritik parametreler eksikse bunları netleştir.
+  expected_output: "Kullanıcı tarafından tamamen onaylanmış kart parametreleri listesi."
+  agent: kicad_consultant
+
+electrical_review_task:
+  description: >
+    Onaylanan parametrelere göre oluşturulacak komponent yerleşim planını denetle. Eğer voltaj yüksekse (Örn: 20V) yol kalınlıklarının yeterli olduğunu ve filtre kapasitörlerinin regülatör pinlerine yakın konumlandırıldığını doğrula. Yanlış footprint kullanımını engelle.
+  expected_output: "Mühendislik kurallarına uygunluk raporu ve onay durumu."
+  agent: senior_pcb_reviewer
+  context:
+    - requirement_gathering_task
+
+routing_optimization_task:
+  description: >
+    Önceki görevlerin ONAY özetini kullan (tam metni tekrarlama). YALNIZCA geçerli JSON yaz (markdown yok).
+    schema_version=1; board_mm; track_width_mm; components (ref, footprint Lib:Name, x_mm, y_mm);
+    tracks (net, layer F.Cu, points_mm, 45° kırılım); zones; silk_labels (ref, x_mm, y_mm).
+    Footprint: Resistor_SMD:R_0805_2012Metric, Capacitor_SMD:C_0805_2012Metric,
+    Capacitor_SMD:CP_Elec_6.3x7.7, Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical.
+    C2, C1 courtyard'undan en az 1mm uzak; tüm pasifler +12V/GND yollarına bağlı; etiket çakışması yok.
+  expected_output: "Tek bir JSON nesnesi (schema_version 1). KiCad eklentisi doğrudan uygular."
+  agent: track_router_agent
+  context:
+    - electrical_review_task
+  output_file: "output/kicad_design.json"

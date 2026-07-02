@@ -1,0 +1,24 @@
+# Python sanal ortamı ve önbellekleri
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# LLM API anahtarları — asla commit etme
+.env
+.env.*
+!.env.example
+*.local.json
+groq_api_key.txt
+groq_api_key.local
+**/groq_api_key.txt
+**/groq_api_key.local
+
+# KiCad yedek ve geçici dosyaları
+*.bak
+*.lck
+
+# IDE / OS
+.DS_Store
+*.swp

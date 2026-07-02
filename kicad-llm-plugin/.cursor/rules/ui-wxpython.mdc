@@ -1,0 +1,23 @@
+---
+description: KiCad eklentisi wxPython arayüzü (merhabaa_llm) yazılırken uygulanır
+globs: "merhabaa_llm.py"
+alwaysApply: false
+---
+
+# wxPython & KiCad Arayüz Kuralları
+
+## Pencere yerleşimi
+- Sohbet paneli önce `PcbFrame` altına dock et; bulunamazsa yüzen pencere (`_fallback_frame`) kullan.
+- UI güncellemeleri ana iş parçacığında: `wx.CallAfter` ile `AppendText`, düğme renkleri ve durum etiketleri.
+
+## Threading
+- Groq API çağrıları `threading.Thread` içinde; sonuçlar `wx.CallAfter` ile panele yazılır.
+- Uzun işlem sırasında gönder düğmesini devre dışı bırak, bitince geri aç.
+
+## Metin ve durum
+- Hata mesajlarını kullanıcıya Türkçe ve kısa göster; teknik ayrıntıyı `print` ile konsola.
+- Uygula düğmesi: `ACTIVE` (çizim hazır), `READY` (tasarım önerildi), `IDLE` (beklemede).
+
+## KiCad entegrasyonu
+- `pcbnew.GetBoard()` ile açık kartı al; kart yoksa anlamlı uyarı ver.
+- ActionPlugin: `MerhabaLLM` adı kısa ve menüde tek giriş; `register()` dosya sonunda bir kez.

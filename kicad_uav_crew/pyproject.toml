@@ -1,0 +1,21 @@
+[project]
+name = "kicad_uav_crew"
+version = "0.1.0"
+description = "kicad_uav_crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "crewai[tools]==1.14.4",
+    "litellm>=1.84.0",
+]
+
+[project.scripts]
+kicad_uav_crew = "kicad_uav_crew.main:run"
+run_crew = "kicad_uav_crew.main:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
