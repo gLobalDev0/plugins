@@ -23,4 +23,4 @@ This project is currently developed as a **Minimum Viable Product (MVP)** to dem
 <img width="850" height="855" alt="proof" src="https://github.com/user-attachments/assets/3913a709-56d3-4eaf-8d66-6fb14d5118a5" />
 <img width="758" height="470" alt="kicad5" src="https://github.com/user-attachments/assets/767eb2d7-9491-47aa-8b74-972c0a4ee88a" />
 <img width="736" height="715" alt="kic" src="https://github.com/user-attachments/assets/df0d56c9-da45-49b1-b27f-c262ad35391f" />
-<img width="1011" height="345" alt="fkjdhfsjkhdfdfhfgh" src="https://github.com/user-attachments/assets/4f5c9784-f901-40f8-8704-7432f168a7e8" />
+
